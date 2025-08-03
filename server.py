@@ -6,7 +6,7 @@ from flask import Flask, request, send_from_directory, jsonify
 
 # --- Configuration ---
 # IMPORTANT: Update this to the absolute path of your main.py script
-PATH_TO_MAIN_SCRIPT = "C:/Users/hashe/ai_equestrian/src/main.py" 
+PATH_TO_MAIN_SCRIPT = os.path.join("src", "main.py")
 UPLOADS_FOLDER = "uploads"
 RESULTS_FOLDER = "results"
 
