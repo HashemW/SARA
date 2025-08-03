@@ -15,15 +15,15 @@
 #SBATCH -e /fs/nexus-scratch/hwahed/ai_equestrian/logs/%j.err
 set -e
 VIDEO_ORDER=(
-    /fs/nexus-scratch/hwahed/ai_equestrian/testVideos/belgianmare1.mp4
-    /fs/nexus-scratch/hwahed/ai_equestrian/testVideos/horseVid.mp4
-    /fs/nexus-scratch/hwahed/ai_equestrian/testVideos/IMG_5157.MOV.mp4
-    /fs/nexus-scratch/hwahed/ai_equestrian/testVideos/whiteB1.mp4
+    C:/Users/hashe/ai_equestrian/input_videos/belgianmare1.mp4
+    C:/Users/hashe/ai_equestrian/input_videos/horseVid.mp4
+    C:/Users/hashe/ai_equestrian/input_videos/IMG_5157.MOV.mp4
+    C:/Users/hashe/ai_equestrian/input_videos/whiteB1.mp4
 )
 
 for VIDEO_PATH in "${VIDEO_ORDER[@]}"; do
     echo "Processing video: $VIDEO_PATH"
-    python3 /fs/nexus-scratch/hwahed/ai_equestrian/src/main.py "$VIDEO_PATH" 1
+    python C:/Users/hashe/ai_equestrian/src/main.py "$VIDEO_PATH" 0
 done
 
 # python3 /fs/nexus-scratch/hwahed/ai_equestrian/src/main.py /fs/nexus-scratch/hwahed/ai_equestrian/testVideos/IMG_5157.MOV.mp4 0

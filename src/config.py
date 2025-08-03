@@ -1,14 +1,14 @@
 import torch
 
 # --- Model Paths ---
-YOLO_MODEL_PATH = "/fs/nexus-scratch/hwahed/yoloFineTuning/Horse_Keypoints/goodRun!/weights/best.pt"
-TRANSFORMER_MODEL_PATH = '/fs/nexus-scratch/hwahed/GaitAnalyzer/top_models_onecycle/gait_model_rank_1_epoch_26_acc_92.86.pth'
+YOLO_MODEL_PATH = "C:/Users/hashe/ai_equestrian/models/best.pt"
+GAIT_MODEL_PATH = 'C:/Users/hashe/ai_equestrian/models/96.97accuracy.pth'
 
 # --- Analysis & Video Settings ---
 FRAME_SEQUENCE_LENGTH = 20
 CLASSES = ['standing', 'walking', 'trotting', 'cantering', 'gallop']
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-OUTPUT_VIDEO_DIR = '/fs/nexus-scratch/hwahed/ai_equestrian/CoachVideos/'
+OUTPUT_VIDEO_DIR = 'C:/Users/hashe/ai_equestrian/coached_videos'
 
 # --- Rider Grading Criteria ---
 # NEW: Bounding Box Aspect Ratio Method
@@ -21,7 +21,7 @@ ANGLE_CONSTANT = 83
 DEBUG = 0
 
 # --- Transformer Model Hyperparameters ---
-RAW_INPUT_SIZE = 79
+RAW_INPUT_SIZE = 87
 N_HEADS = 8
 D_MODEL = N_HEADS * 11  # 88
 N_LAYERS = 7

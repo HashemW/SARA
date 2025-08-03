@@ -138,13 +138,11 @@ def draw_keypoints(frame, pixel_keypoints):
 
 def draw_gait_prediction(frame, prediction_history, keypoints_xy):
     """Draws the top gait prediction on the frame."""
-    if not prediction_history or prediction_history[-1] is None:
-        return
+
 
     nose_x, nose_y = keypoints_xy[config.NOSE_IDX]
-    top_pred_idx, _ = prediction_history[-1][0]
-    pred_class = CLASSES[top_pred_idx]
-    text = f"{pred_class}"
+
+    text = f"{prediction_history}"
     cv2.putText(frame, text, (int(nose_x + 50), int(nose_y - 25)), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 3, cv2.LINE_AA)
 
 
