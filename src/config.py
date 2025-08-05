@@ -1,41 +1,41 @@
 import torch
 
 # --- Model Paths ---
-YOLO_MODEL_PATH = "C:/Users/hashe/ai_equestrian/models/best.pt"
-GAIT_MODEL_PATH = 'C:/Users/hashe/ai_equestrian/models/96.97accuracy.pth'
-
+YOLO_MODEL_PATH = "/fs/nexus-scratch/hwahed/ai_equestrian/models/best.pt"
+GAIT_MODEL_PATH = '/fs/nexus-scratch/hwahed/ai_equestrian/models/96.97accuracy.pth'
+SAM_MODEL_PATH = "/fs/nexus-scratch/hwahed/ai_equestrian/sam_b.pt"
+YOLO_PERSON_MODEL_PATH = "/fs/nexus-scratch/hwahed/ai_equestrian/yolov8m.pt" 
 # --- Analysis & Video Settings ---
 FRAME_SEQUENCE_LENGTH = 20
 CLASSES = ['standing', 'walking', 'trotting', 'cantering', 'gallop']
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-OUTPUT_VIDEO_DIR = 'C:/Users/hashe/ai_equestrian/coached_videos'
+OUTPUT_VIDEO_DIR = '/fs/nexus-scratch/hwahed/ai_equestrian/CoachVideos'
 
 # --- Rider Grading Criteria ---
-# NEW: Bounding Box Aspect Ratio Method
-# We determine the horse's orientation by the aspect ratio of its body's bounding box.
-# A low height/width ratio indicates a side-on view suitable for grading.
-MAX_ASPECT_RATIO = 0.5 # Lower is stricter. A horse is wider than it is tall.
-IDEAL_ELBOW_ANGLE = 140 # The target angle for the rider's elbow
-# Constant for the original rider guidance logic
+MAX_ASPECT_RATIO = 0.5 
+IDEAL_ELBOW_ANGLE = 140
 ANGLE_CONSTANT = 83
 DEBUG = 0
+
+# --- NEW: Segmentation Settings ---
+YOLO_PERSON_CONF_THRESHOLD = 0.60
+SAM_CONF_THRESHOLD = 0.80 # Confidence threshold for accepting a SAM mask
 
 # --- Transformer Model Hyperparameters ---
 RAW_INPUT_SIZE = 87
 N_HEADS = 8
-D_MODEL = N_HEADS * 11  # 88
+D_MODEL = N_HEADS * 11
 N_LAYERS = 7
 DROPOUT_PROB = 0.2
 NUM_CLASSES = len(CLASSES)
 
 # --- Keypoint Definitions ---
+# NEW: Indices for just the rider's keypoints
+RIDER_KEYPOINT_INDICES = list(range(1, 15))
 # HORSE keypoints start at index 15
 HORSE_LEG_KEYPOINT_INDICES = list(range(15, 27))
-
-# Keypoints for the body aspect ratio calculation (torso and legs, no head/neck)
 HORSE_BODY_AND_LEGS_INDICES = list(range(23, 27)) + list(range(28, 30)) + list(range(32, 37))
 
-# Mapping of leg keypoints to their index within the sliced array (0-11)
 KP_MAP = {
     'L_Front_Hoof': 0, 'R_Front_Hoof': 1, 'L_Back_Hoof': 2, 'R_Back_Hoof': 3,
     'L_Front_Knee': 4, 'R_Front_Knee': 5, 'L_Back_Knee': 6, 'R_Back_Knee': 7,
