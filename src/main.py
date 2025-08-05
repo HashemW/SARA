@@ -51,7 +51,7 @@ def run_analysis(video_path, segment_rider_flag):
         return
 
     
-    video_path_no_ext = os.path.splitext(video_path)[0]
+    video_path_no_ext = os.path.basename(os.path.splitext(video_path)[0])
     output_video_path = os.path.join(config.OUTPUT_VIDEO_DIR, f"{video_path_no_ext}_coached.mp4")
     
     print(f"Output video will be saved to {output_video_path}")
@@ -182,7 +182,7 @@ def run_analysis(video_path, segment_rider_flag):
     cv2.destroyAllWindows()
 
 if __name__ == '__main__':
-    # Expects: python main.py <input_path> <output_path> <segment_flag (0 or 1)>
+    # Expects: python main.py <input_path> <debug_option> <segment_flag (0 or 1)>
     if len(sys.argv) != 4:
         print("Usage: python main.py <input_video_path> <debug option> <segment_flag>")
         print("  <segment_flag>: 1 to segment the rider, 0 to not segment.")

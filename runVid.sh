@@ -26,4 +26,4 @@
 #     python C:/Users/hashe/ai_equestrian/src/main.py "$VIDEO_PATH" 0
 # done
  
-python3 /fs/nexus-scratch/hwahed/ai_equestrian/src/main.py /fs/nexus-scratch/hwahed/ai_equestrian/testVideos/horseVid.mp4 0 1
+python3 /fs/nexus-scratch/hwahed/ai_equestrian/src/main.py /fs/nexus-scratch/hwahed/ai_equestrian/testVideos/horseVid.mp4 0 0
