@@ -1,6 +1,7 @@
-Flask
-gunicorn
-torch
-ultralytics
-opencv-python-headless
-numpy
+torch>=2.0.0
+torchvision>=0.15.0
+ultralytics>=8.0.0  # For YOLOv8
+opencv-python>=4.8.0
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
