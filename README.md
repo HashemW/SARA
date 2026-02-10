@@ -7,9 +7,14 @@
 
 **SARA (System for Automated Rider Analysis)** is an AI-powered computer vision tool designed to analyze horse and rider biomechanics. It uses deep learning to detect gait, grading rider posture (leg, back, and hand positions), and visualizing form corrections on video.
 
-This repository contains the code for SARA-AI, powered by **Modal** (for GPU cloud computing).
+This repository contains the code for SARA-AI.
 
-Our website is saraai.umd.edu if any equestrian would like to use our model!
+Our website detailing research is [here](saraai.umd.edu) and our video uploading is here [here](saraai.umd.edu/#/cadence) if any equestrian would like to use our model!
+
+Video Output Example:
+
+![real_coached-ezgif com-optimize](https://github.com/user-attachments/assets/6bf0728f-55a5-452e-a0ea-cd3e4ac5f169)
+
 
 ## 🚀 Features
 
